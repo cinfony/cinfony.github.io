@@ -14,34 +14,34 @@ Installing Cinfony on Windows
 Installing dependencies
 -----------------------
 
-You should install the dependencies first. Depending on what wrappers you wish to use, you should install (32-bit versions of) some or all of the following: `Python 2.7.x`_, `Java 1.7`_ ("JRE 7"), `Jython 2.5`_, `IronPython 2.7`_. If you are installing Jython, you should install Java first.
+You should install the dependencies first. Depending on what wrappers you wish to use, you should install (32-bit versions of) some or all of the following: `Python 2.7.x`_, `Java 1.7 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_ ("JRE 7"), `Jython 2.5 <http://jython.org/downloads>`_, `IronPython 2.7 <http://ironpython.net>`_. If you are installing Jython, you should install Java first.
 
 Installing **Cinfony**
 ----------------------
 
 I will assume that you want to install Cinfony into the folder :file:`C:\\cinfony`. If you install it somewhere else, remember this when you are following the instructions.
 
--    Download `cinfony 1.2`_, and unzip it, for example, as :file:`C:\\cinfony`. This includes the following libraries so you don't need to download them separately:
+-    Download `cinfony 1.2 <http://https://github.com/cinfony/cinfony/archive/v1.2rc1.zip>`_, and unzip it, for example, as :file:`C:\\cinfony`. This includes the following libraries so you don't need to download them separately:
 
      -   JPype 0.5.4.2 - connects CPython to a JVM
      -   NumPy 1.6.2 - fast linear algebra for Python
      -   Pycairo 1.4.12 - Python interface to Cairo (drawing library)
      -   Python Imaging Library 1.1.7 - Image manipulation in Python 
 
--    If interested in using Open Babel, download OpenBabel 2.3.2 and run the installer. Also download and run the installer for the Python 2.7 bindings.
--    If interested in using the Chemistry Development Kit, download CDK 1.4.15 and place in :file:`C:\\cinfony\\Java`
--    If interested in using the RDKit, download RDKit 2012.09 (Greg Landrum) and unzip into :file:`C:\\cinfony\\RDKit`
+-    If interested in using Open Babel, download `OpenBabel 2.3.2 <http://sourceforge.net/projects/openbabel/files/openbabel/2.3.2/OpenBabel2.3.2a_Windows_Installer.exe/download>`_ and run the installer. Also download and run the installer for the `Python 2.7 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py27.exe/download>`_ bindings.
+-    If interested in using the Chemistry Development Kit, download `CDK 1.4.15 <http://downloads.sourceforge.net/cdk/cdk-1.4.15.jar>`_ and place in :file:`C:\\cinfony\\Java`
+-    If interested in using the RDKit, download `RDKit 2012.09 <http://rdkit.googlecode.com/files/RDKit_2012_09_1.win32.py27.zip>`_ (Greg Landrum) and unzip into :file:`C:\\cinfony\\RDKit`
 
      -   If unzipped correctly, there should be a file :file:`C:\\cinfony\\RDKit\\README` 
 
--    If interested in using OPSIN, download OPSIN 1.3 and place in :file:`C:\\cinfony\\Java`
--    If interested in using Indigo, go to the Indigo 1.1 download page and...
+-    If interested in using OPSIN, download `OPSIN 1.3 <https://bitbucket.org/dan2097/opsin/downloads/opsin-1.3.0-jar-with-dependencies.jar>`_ and place in :file:`C:\\cinfony\\Java`
+-    If interested in using Indigo, go to the `Indigo 1.1 download page <http://lifescience.opensource.epam.com/download/indigo/index.html>`_ and...
 
      -   ...for CPython, follow the link for Windows builds: Python API to download a zip file. Unzip this and copy all of the contents into :file:`C:\\cinfony\\Python`.
      -   ...for Jython, follow the link for Windows builds: Java API to download a zip file. Unzip this and place the four jar files within into :file:`C:\\cinfony\\Java`.
      -   ...for IronPython, follow the link for Windows builds: .NET API to download a zip file. Unzip this and copy the three DLLs within into :file:`C:\\cinfony\\DLL`. 
 
--    If interested in using JChem, obtain a license from ChemAxon and then download and install JChem 5.11.
+-    If interested in using JChem, obtain a license from `ChemAxon <http://www.chemaxon.com>`_ and then download and install `JChem 5.11 <https://www.chemaxon.com/download/jchem-suite/>`_.
 -    Open the file :file:`C:\\cinfony\\cinfony.bat` with Notepad and follow the instructions therein to configure Cinfony
 -    Add the cinfony directory to the Windows PATH or just copy :file:`C:\\cinfony\\cinfony.bat` to a folder that's already on the Windows PATH
 
@@ -120,3 +120,4 @@ If you want to run Cinfony scripts from within IDLE, find the file :file:`idle.b
 Make a shortcut to :file:`cinfony_idle.bat` on your desktop and use this to start IDLE. You can also drag-and-drop Python scripts onto this shortcut. 
 
 .. _Python 2.7.x: http://python.org/download/releases
+
