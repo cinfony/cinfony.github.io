@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing Cinfony on Windows &mdash; Cinfony 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Cinfony 1.2 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to Cinfony’s documentation!" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installing-cinfony-on-windows">
+<h1>Installing Cinfony on Windows<a class="headerlink" href="#installing-cinfony-on-windows" title="Permalink to this headline">¶</a></h1>
+<p><strong>Cinfony</strong> contains the following modules (dependencies listed in parentheses):</p>
+<ul class="simple">
+<li><strong>pybel</strong> - Open Babel wrapper (Python or Java+Jython or IronPython)</li>
+<li><strong>cdk</strong> - CDK wrapper (Java and Python+JPype or Jython)</li>
+<li><strong>rdk</strong> - RDKit wrapper (Python)</li>
+<li><strong>opsin</strong> - OPSIN wrapper (Java and Python+JPype or Jython)</li>
+<li><strong>indy</strong> - Indigo wrapper (Python or Java+Jython or IronPython)</li>
+<li><strong>jchem</strong> - JChem wrapper (Java and Python+JPype or Jython)</li>
+<li><strong>webel</strong> - Uses web services</li>
+</ul>
+<div class="section" id="installing-dependencies">
+<h2>Installing dependencies<a class="headerlink" href="#installing-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>You should install the dependencies first. Depending on what wrappers you wish to use, you should install (32-bit versions of) some or all of the following: <a class="reference external" href="http://python.org/download/releases">Python 2.7.x</a>, <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java 1.7</a> (&#8220;JRE 7&#8221;), <a class="reference external" href="http://jython.org/downloads">Jython 2.5</a>, <a class="reference external" href="http://ironpython.net">IronPython 2.7</a>. If you are installing Jython, you should install Java first.</p>
+</div>
+<div class="section" id="installing-cinfony">
+<h2>Installing <strong>Cinfony</strong><a class="headerlink" href="#installing-cinfony" title="Permalink to this headline">¶</a></h2>
+<p>I will assume that you want to install Cinfony into the folder <code class="file docutils literal"><span class="pre">C:\cinfony</span></code>. If you install it somewhere else, remember this when you are following the instructions.</p>
+<ul>
+<li><p class="first">Download <a class="reference external" href="http://https://github.com/cinfony/cinfony/archive/v1.2rc1.zip">cinfony 1.2</a>, and unzip it, for example, as <code class="file docutils literal"><span class="pre">C:\cinfony</span></code>. This includes the following libraries so you don&#8217;t need to download them separately:</p>
+<ul class="simple">
+<li>JPype 0.5.4.2 - connects CPython to a JVM</li>
+<li>NumPy 1.6.2 - fast linear algebra for Python</li>
+<li>Pycairo 1.4.12 - Python interface to Cairo (drawing library)</li>
+<li>Python Imaging Library 1.1.7 - Image manipulation in Python</li>
+</ul>
+</li>
+<li><p class="first">If interested in using Open Babel, download <a class="reference external" href="http://sourceforge.net/projects/openbabel/files/openbabel/2.3.2/OpenBabel2.3.2a_Windows_Installer.exe/download">OpenBabel 2.3.2</a> and run the installer. Also download and run the installer for the <a class="reference external" href="http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py27.exe/download">Python 2.7</a> bindings.</p>
+</li>
+<li><p class="first">If interested in using the Chemistry Development Kit, download <a class="reference external" href="http://downloads.sourceforge.net/cdk/cdk-1.4.15.jar">CDK 1.4.15</a> and place in <code class="file docutils literal"><span class="pre">C:\cinfony\Java</span></code></p>
+</li>
+<li><p class="first">If interested in using the RDKit, download <a class="reference external" href="http://rdkit.googlecode.com/files/RDKit_2012_09_1.win32.py27.zip">RDKit 2012.09</a> (Greg Landrum) and unzip into <code class="file docutils literal"><span class="pre">C:\cinfony\RDKit</span></code></p>
+<ul class="simple">
+<li>If unzipped correctly, there should be a file <code class="file docutils literal"><span class="pre">C:\cinfony\RDKit\README</span></code></li>
+</ul>
+</li>
+<li><p class="first">If interested in using OPSIN, download <a class="reference external" href="https://bitbucket.org/dan2097/opsin/downloads/opsin-1.3.0-jar-with-dependencies.jar">OPSIN 1.3</a> and place in <code class="file docutils literal"><span class="pre">C:\cinfony\Java</span></code></p>
+</li>
+<li><p class="first">If interested in using Indigo, go to the <a class="reference external" href="http://lifescience.opensource.epam.com/download/indigo/index.html">Indigo 1.1 download page</a> and...</p>
+<ul class="simple">
+<li>...for CPython, follow the link for Windows builds: Python API to download a zip file. Unzip this and copy all of the contents into <code class="file docutils literal"><span class="pre">C:\cinfony\Python</span></code>.</li>
+<li>...for Jython, follow the link for Windows builds: Java API to download a zip file. Unzip this and place the four jar files within into <code class="file docutils literal"><span class="pre">C:\cinfony\Java</span></code>.</li>
+<li>...for IronPython, follow the link for Windows builds: .NET API to download a zip file. Unzip this and copy the three DLLs within into <code class="file docutils literal"><span class="pre">C:\cinfony\DLL</span></code>.</li>
+</ul>
+</li>
+<li><p class="first">If interested in using JChem, obtain a license from <a class="reference external" href="http://www.chemaxon.com">ChemAxon</a> and then download and install <a class="reference external" href="https://www.chemaxon.com/download/jchem-suite/">JChem 5.11</a>.</p>
+</li>
+<li><p class="first">Open the file <code class="file docutils literal"><span class="pre">C:\cinfony\cinfony.bat</span></code> with Notepad and follow the instructions therein to configure Cinfony</p>
+</li>
+<li><p class="first">Add the cinfony directory to the Windows PATH or just copy <code class="file docutils literal"><span class="pre">C:\cinfony\cinfony.bat</span></code> to a folder that&#8217;s already on the Windows PATH</p>
+<ul class="simple">
+<li>To add a folder to the Windows PATH, you need to go to Control Panel, System, Advanced System Settings, Environment Variables</li>
+<li>In the top panel (user variables) search for one called PATH<ul>
+<li>If it&#8217;s there, click Edit and add <code class="docutils literal"><span class="pre">;C:\cinfony</span></code> to the end</li>
+<li>If it&#8217;s not there, click New, and enter PATH for the name and <code class="docutils literal"><span class="pre">C:\cinfony</span></code> for the value</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">If you are using Jython, open the folder where you installed Jython, and edit the file named <code class="file docutils literal"><span class="pre">registry</span></code> as follows:</p>
+<ul>
+<li><p class="first">Before the line <code class="docutils literal"><span class="pre">#</span> <span class="pre">This</span> <span class="pre">is</span> <span class="pre">how</span> <span class="pre">Jim</span> <span class="pre">sets</span> <span class="pre">his</span> <span class="pre">path</span> <span class="pre">etc</span></code>, add:</p>
+<div class="highlight-python"><div class="highlight"><pre>python.path=C:\\cinfony
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="testing-cinfony">
+<h2>Testing Cinfony<a class="headerlink" href="#testing-cinfony" title="Permalink to this headline">¶</a></h2>
+<p>Open a command prompt anywhere on your computer and type the following:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span class="go">C:\Documents and Settings\Noel&gt; cinfony</span>
+<span class="go">Cinfony is configured for user! At the Python 2.7 prompt type:</span>
+<span class="go">from cinfony import obabel, rdk, cdk, indy, jchem, opsin, webel</span>
+<span class="go">or at the Jython 2.5 prompt type:</span>
+<span class="go">from cinfony import obabel, cdk, indy, opsin, webel</span>
+<span class="go">or at the IronPython 2.7 prompt type:</span>
+<span class="go">from cinfony import obabel, indy, jchem, webel</span>
+</pre></div>
+</div>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="go">C:\Documents and Settings\Noel&gt; python</span>
+<span class="go">Python 2.7.1 (r271:86832, Nov 27 2010, 18:30:46) [MSC v.1500 32 bit (Intel)] on</span>
+<span class="go">win32</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">obabel</span><span class="p">,</span> <span class="n">rdk</span><span class="p">,</span> <span class="n">cdk</span><span class="p">,</span> <span class="n">indy</span><span class="p">,</span> <span class="n">opsin</span><span class="p">,</span> <span class="n">webel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">obabel</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;CC=O&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">rdk</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">calcdesc</span><span class="p">()</span>
+<span class="go">{&#39;BertzCT&#39;: 10.264662506490405, &#39;fr_C_O_noCOO&#39;: 1, &#39;Chi4v&#39;: 0.0, &#39;fr_Ar_COO&#39;: 0,</span>
+<span class="go">&#39;Chi4n&#39;: 0.0, &#39;SMR_VSA4&#39;: 0.0, &#39;fr_urea&#39;: 0, &#39;fr_para_hydroxylation&#39;: 0, &#39;fr_ba</span>
+<span class="gp">...</span>
+<span class="go">one&#39;: 0, &#39;fr_nitro_arom_nonortho&#39;: 0, &#39;Chi0v&#39;: 1.9855985596534889, &#39;fr_ArN&#39;: 0,</span>
+<span class="go">&#39;NumRotatableBonds&#39;: 0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cdkmol</span> <span class="o">=</span> <span class="n">cdk</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cdkmol</span><span class="o">.</span><span class="n">addh</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">cdkmol</span><span class="o">.</span><span class="n">molwt</span>
+<span class="go">44.0525588989</span>
+<span class="go">&gt;&gt; print webel.Molecule(mol).write(&quot;names&quot;)</span>
+<span class="go">[&#39;acetaldehyde&#39;, &#39;ethanal&#39;, &#39;75-07-0&#39;, &#39;NCI-C56326&#39;, &#39;PS2030_SUPELCO&#39;, &#39;NSC7594&#39;</span>
+<span class="go">, &#39;NCGC00091753-01&#39;, &#39;Octowy aldehyd&#39;, &#39;METALDEHYDE&#39;,</span>
+<span class="gp">...</span>
+<span class="go">&#39;acetaldehydes&#39;, &#39;W200360_ALDRICH&#39;, &#39;C00084&#39;, &#39;ACETALD&#39;, &#39;ACETYL GROUP&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">CTRL</span><span class="o">+</span><span class="n">Z</span><span class="p">,</span> <span class="n">Enter</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="go">C:\Documents and Settings\Noel&gt; jython</span>
+<span class="go">*sys-package-mgr*: processing new jar, &#39;C:\cinfony\CDK\cdk-1.2.8.jar&#39;</span>
+<span class="go">Jython 2.5.0 on java1.5.0_15</span>
+<span class="go">Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">obabel</span><span class="p">,</span> <span class="n">cdk</span><span class="p">,</span> <span class="n">indy</span><span class="p">,</span> <span class="n">opsin</span><span class="p">,</span> <span class="n">webel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">cdk</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;CC=O&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">obabel</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">molwt</span>
+<span class="go">44.05256</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">CTRL</span><span class="o">+</span><span class="n">Z</span><span class="p">,</span> <span class="n">Enter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-cinfony-from-idle">
+<h2>Using Cinfony from IDLE<a class="headerlink" href="#using-cinfony-from-idle" title="Permalink to this headline">¶</a></h2>
+<p>If you want to run Cinfony scripts from within IDLE, find the file <code class="file docutils literal"><span class="pre">idle.bat</span></code> (on my computer this is in <code class="file docutils literal"><span class="pre">C:\Python27\Lib\idlelib\idle.bat</span></code>) and make a copy called <code class="file docutils literal"><span class="pre">cinfony_idle.bat</span></code>. Edit this file in Notepad and add the following just before the <code class="docutils literal"><span class="pre">start</span> <span class="pre">idle.pyw</span></code> line:</p>
+<div class="highlight-python"><div class="highlight"><pre>call cinfony.bat
+</pre></div>
+</div>
+<p>Make a shortcut to <code class="file docutils literal"><span class="pre">cinfony_idle.bat</span></code> on your desktop and use this to start IDLE. You can also drag-and-drop Python scripts onto this shortcut.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installing Cinfony on Windows</a><ul>
+<li><a class="reference internal" href="#installing-dependencies">Installing dependencies</a></li>
+<li><a class="reference internal" href="#installing-cinfony">Installing <strong>Cinfony</strong></a></li>
+<li><a class="reference internal" href="#testing-cinfony">Testing Cinfony</a></li>
+<li><a class="reference internal" href="#using-cinfony-from-idle">Using Cinfony from IDLE</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Cinfony&#8217;s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/install_windows.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Cinfony Developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/install_windows.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
