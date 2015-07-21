@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing Cinfony on Linux &mdash; Cinfony 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Cinfony 1.2 documentation" href="index.html" />
+    <link rel="prev" title="Installing Cinfony on Windows" href="install_windows.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installing-cinfony-on-linux">
+<h1>Installing Cinfony on Linux<a class="headerlink" href="#installing-cinfony-on-linux" title="Permalink to this headline">¶</a></h1>
+<p>The following instructions take you through the process of installing Cinfony and all of its dependencies. Note that all dependencies are optional so if you don&#8217;t want to use a particular toolkit, there is no need to follow the instructions for installing it.</p>
+<div class="section" id="a-brief-word-about-installing-python-packages">
+<h2>A brief word about installing Python packages<a class="headerlink" href="#a-brief-word-about-installing-python-packages" title="Permalink to this headline">¶</a></h2>
+<p>After extracting the .tar.gz file, Python packages are generally installed in one of two ways:</p>
+<ul class="simple">
+<li>globally, with <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> (requires root)</li>
+<li>locally, with <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span> <span class="pre">--prefix=$HOME</span></code><ul>
+<li>This requires the PYTHONPATH variable to be set to include the directory where the files were installed (in this case, <code class="file docutils literal"><span class="pre">$HOME/lib/python2.7/site-packages</span></code> or so).</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A recent Python, Jython or IronPython in the 2.x series</li>
+<li>Java - If using Jython, or accessing a Java library (e.g. CDK, or OPSIN)<ul>
+<li>Install JDK 7.0 (1.7.0)</li>
+</ul>
+</li>
+<li>Mono - If using IronPython</li>
+</ul>
+</div>
+<div class="section" id="cinfony">
+<h2>Cinfony<a class="headerlink" href="#cinfony" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Download and install Cinfony 1.2<ul>
+<li>Test at the Python prompt as follows:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cinfony</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>If you want to draw 2D diagrams for some of the modules, you need to install the Python Imaging Library (PIL)<ul>
+<li>Use your distribution&#8217;s package manager to install PIL. On Debian Etch, for example, the package was split into python-imaging and python-imaging-tk</li>
+<li>Test at the Python prompt as follows:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">Image</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ImageTk</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>In order for Jython to find Cinfony, add a line to the registry file in the Jython installation directory as follows:<ul>
+<li><code class="docutils literal"><span class="pre">python.path</span> <span class="pre">=</span> <span class="pre">/usr/local/lib/python2.7/site-packages</span></code> where you should replace the path by the path to the directory where Cinfony was installed</li>
+</ul>
+</li>
+<li>In order for IronPython to find Cinfony, add the installation directory to the IRONPYTHONPATH environment variable</li>
+<li>Test at the Jython or IronPython prompt as follows:</li>
+</ul>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cinfony</span>
+</pre></div>
+</div>
+<p><strong>Cinfony</strong> contains the following 7 modules (prerequisites listed in parentheses):</p>
+<ol class="arabic simple">
+<li><strong>pybel</strong> - OpenBabel wrapper (Python or Java+Jython or IronPython)</li>
+<li><strong>cdk</strong> - CDK wrapper (Java and Python+JPype or Jython)</li>
+<li><strong>rdk</strong> - RDKit wrapper (Python)</li>
+<li><strong>opsin</strong> - OPSIN wrapper (Java and Python+JPype or Jython)</li>
+<li><strong>indy</strong> - Indigo wrapper (Python or Java+Jython or IronPython)</li>
+<li><strong>jchem</strong> - JChem wrapper (Java and Python+JPype or Jython)</li>
+<li><strong>webel</strong> - Uses web services</li>
+</ol>
+<p>To install the dependencies for each wrapper, follow the appropriate instructions below. <strong>Note: there is no need to install the dependencies for a wrapper you are not going to use.</strong></p>
+</div>
+<div class="section" id="open-babel">
+<h2>Open Babel<a class="headerlink" href="#open-babel" title="Permalink to this headline">¶</a></h2>
+<p>Open Babel is a C++ library and can be accessed from all of CPython, Jython and IronPython.</p>
+<ul class="simple">
+<li>Download and extract <a class="reference external" href="http://openbabel.org/wiki/Install">Open Babel 2.3.2</a></li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p class="first">Follow the <a class="reference external" href="http://openbabel.org/docs/current/Installation/install.html#compiling-open-babel">instructions</a> to compile and install Open Babel</p>
+<blockquote>
+<div><ul class="simple">
+<li>If you want to be able to create a 2D diagram of a molecule, you need to make sure that you have compiled Open Babel with support for Png output. This requires the Cairo library (and development headers) which you should install using your package manager, prior to compiling Open Babel.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Follow the <a class="reference external" href="http://openbabel.org/docs/current/Installation/install.html#compile-language-bindings">instructions</a> to compile and install the Open Babel Python bindings, Java bindings or CSharp bindings</p>
+</li>
+</ul>
+</div></blockquote>
+<p>In the following section $OB_INSTALLDIR refers to the directory where the Open Babel library was installed (typically <code class="file docutils literal"><span class="pre">/usr/local/lib</span></code>).</p>
+<ul>
+<li><p class="first">For use from CPython, add the directory where the Python bindings were installed to the PYTHONPATH environment variable (if necessary)</p>
+</li>
+<li><p class="first">For use from Jython:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add the directory containing libopenbabel_java.so (typically $OB_INSTALLDIR) to the LD_LIBRARY_PATH environment variable</li>
+<li>Add the directory containing openbabel.jar (typically $OB_INSTALLDIR) to the CLASSPATH environment variable</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">From use from IronPython:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add the directory containing libopenbabel_csharp.so (typically $OB_INSTALLDIR) to the LD_LIBRARY_PATH environment variable</li>
+<li>Add the directory containing OBDotNet.dll (typically $OB_INSTALLDIR) to the OBDOTNET environment variable</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p class="rubric">Test</p>
+<p>Test at the Python, Jython or IronPython prompt as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">obabel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">obabel</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;CCC&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">molwt</span>
+<span class="go">44.09562</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rdkit">
+<h2>RDKit<a class="headerlink" href="#rdkit" title="Permalink to this headline">¶</a></h2>
+<p>The RDKit is a C++ library currently accessible only from CPython.</p>
+<ul>
+<li><p class="first">Download and extract <a class="reference external" href="http://code.google.com/p/rdkit/downloads/detail?name=RDKit_2012_09_1.tgz&amp;can=2&amp;q=">RDKit 2012.09</a></p>
+</li>
+<li><p class="first">Follow the <a class="reference external" href="http://www.rdkit.org/docs/Install.html">installation instructions</a></p>
+</li>
+<li><p class="first">Add the RDKit_2011_09_1 directory to the PYTHONPATH environment variable</p>
+</li>
+<li><p class="first">Test at the Python prompt as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">rdk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">rdk</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;CCC&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">molwt</span>
+<span class="go">44.097</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="cdk">
+<h2>CDK<a class="headerlink" href="#cdk" title="Permalink to this headline">¶</a></h2>
+<p>The CDK is a Java library and can be accessed from both CPython and Jython.</p>
+<ul class="simple">
+<li>Download <a class="reference external" href="http://sourceforge.net/projects/cdk/files/cdk/cdk-1.4.15.jar/download">CDK 1.4.15</a></li>
+<li>Add the cdk-1.4.15.jar file to your CLASSPATH environment variable (remember to include the full path to the jar file)</li>
+</ul>
+<p>No additional configuration is required to use the CDK from Jython, but to use it from CPython:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Use your package manager to install JPype, or else <a class="reference external" href="http://jpype.sf.net">download</a> and install it</dt>
+<dd><ul class="first last simple">
+<li>You need to set JAVA_HOME to the Java installation directory before running setup.py.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Set JPYPE_JVM environment variable to point to the libjvm.so file in your Java installation directory</dt>
+<dd><ul class="first last simple">
+<li>On my system, it&#8217;s <code class="file docutils literal"><span class="pre">/home/user/Tools/jdk1.7.0_4/jre/lib/i386/client/libjvm.so</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="rubric">Test</p>
+<p>Test at the Python or Jython prompt as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">cdk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">cdk</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;CCC&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">molwt</span>
+<span class="go">44.0956192017</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="indigo">
+<h2>Indigo<a class="headerlink" href="#indigo" title="Permalink to this headline">¶</a></h2>
+<p>Indigo is a C++/C library and can be accessed from CPython and Jython (GGASoftware did not provide the .NET bindings for Linux at the time).</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://lifescience.opensource.epam.com/download/indigo/index.html">Download</a> the Python and/or Java API for Linux and unzip them</li>
+<li>To access Indigo from CPython, add the extracted Python directory to PYTHONPATH</li>
+<li>To access Indigo from Jython, add all of the jar files in the extracted Java directory to CLASSPATH</li>
+<li>Test at the Python or Jython prompt as follows:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">indy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">indy</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;CCC&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">molwt</span>
+<span class="go">44.0956192017</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="jchem">
+<h2>JChem<a class="headerlink" href="#jchem" title="Permalink to this headline">¶</a></h2>
+<p>JChem is a Java toolkit and can be accessed from both CPython (using JPype) and from Jython. This is a commercial toolkit and requires a license.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Once installed, add <code class="file docutils literal"><span class="pre">jchem.jar</span></code> to the CLASSPATH.</li>
+<li>For use from CPython, see instructions for installing JPype in the CDK section above.</li>
+<li>Test at the Python or Jython prompt as follows:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">jchem</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">jchem</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;CCC&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">molwt</span>
+<span class="go">44.0956001282</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="opsin">
+<h2>OPSIN<a class="headerlink" href="#opsin" title="Permalink to this headline">¶</a></h2>
+<p>OPSIN can be accessed from both CPython (using JPype) and from Jython.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Please follow the same instructions as for the CDK (above), but using the <a class="reference external" href="https://bitbucket.org/dan2097/opsin/downloads/opsin-1.3.0-jar-with-dependencies.jar">OPSIN 1.3 jar</a> file.</li>
+<li>Test at the Python or Jython prompt as follows:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">opsin</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">opsin</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;iupac&quot;</span><span class="p">,</span> <span class="s">&quot;2-chloro-propane&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">)</span>
+<span class="go">ClC(C)C</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="webel">
+<h2>Webel<a class="headerlink" href="#webel" title="Permalink to this headline">¶</a></h2>
+<p>Webel is a Cinfony module that uses web services. It is pure-Python and does not require any additional configuration. It will work equally well from all versions of Python.</p>
+</div>
+<div class="section" id="common-problems">
+<h2>Common problems<a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">If when using one of the Java bindings, you get a complaint about not being able to find libawt.so, add to the LD_LIBRARY_PATH environment variable the directory in your Java installation containing <cite>libawt.so</cite>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>On my system, it&#8217;s <code class="file docutils literal"><span class="pre">/home/user/Tools/jdk1.7.0_4/jre/lib/i386</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installing Cinfony on Linux</a><ul>
+<li><a class="reference internal" href="#a-brief-word-about-installing-python-packages">A brief word about installing Python packages</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#cinfony">Cinfony</a></li>
+<li><a class="reference internal" href="#open-babel">Open Babel</a></li>
+<li><a class="reference internal" href="#rdkit">RDKit</a></li>
+<li><a class="reference internal" href="#cdk">CDK</a></li>
+<li><a class="reference internal" href="#indigo">Indigo</a></li>
+<li><a class="reference internal" href="#jchem">JChem</a></li>
+<li><a class="reference internal" href="#opsin">OPSIN</a></li>
+<li><a class="reference internal" href="#webel">Webel</a></li>
+<li><a class="reference internal" href="#common-problems">Common problems</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="install_windows.html" title="previous chapter">Installing Cinfony on Windows</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/install_linux.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Cinfony Developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/install_linux.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
