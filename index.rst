@@ -15,4 +15,5 @@ It's open source so you can install it now for free on Windows? or Linux?. Or yo
    :maxdepth: 2
 
    install_windows.rst
+   install_linux.rst
 
