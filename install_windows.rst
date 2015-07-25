@@ -1,3 +1,5 @@
+.. _windows:
+
 Installing Cinfony on Windows
 =============================
 
