@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Cinfony’s documentation! &mdash; Cinfony 1.2 documentation</title>
+    <title>Cinfony &mdash; Cinfony 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -37,34 +37,55 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-cinfony-s-documentation">
-<h1>Welcome to Cinfony&#8217;s documentation!<a class="headerlink" href="#welcome-to-cinfony-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cinfony">
+<h1>Cinfony<a class="headerlink" href="#cinfony" title="Permalink to this headline">¶</a></h1>
 <p><strong>Cinfony</strong> presents a common API to several cheminformatics toolkits. It uses the Python programming language, and builds on top of <strong>Open Babel</strong>, <strong>RDKit</strong>, the <strong>CDK</strong>, <strong>Indigo</strong>, <strong>JChem</strong>, <strong>OPSIN</strong> and cheminformatics webservices.</p>
-<p>It&#8217;s open source so you can install it now for free on Windows? or Linux?. Or you can use it online through the Interactive Cheminformatics Tutorial (Windows only).</p>
+<p>It&#8217;s open source so you can install it now for free on <a class="reference internal" href="install_windows.html#windows"><span>Windows</span></a> or <a class="reference internal" href="install_linux.html#linux"><span>Linux</span></a>. Or you can use it online through the <a class="reference external" href="http://baoilleach.webfactional.com/site_media/webel/">Interactive Cheminformatics Tutorial</a> (Windows only). If you want to hack on it, fork it on <a class="reference external" href="http://github.com/cinfony">Github</a>.</p>
+<img alt="_images/overview.png" src="_images/overview.png" />
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Announcement of Cinfony <a class="reference external" href="http://baoilleach.blogspot.com/2010/04/ann-cinfony-10-released.html">1.0</a>, <a class="reference external" href="http://baoilleach.blogspot.com/2011/12/cinfony-11-released.html">1.1</a>, <a class="reference external" href="http://baoilleach.blogspot.co.uk/2012/12/cinfony-12-released.html">1.2</a></li>
+<li>A <a class="reference external" href="http://www.slideshare.net/baoilleach/cinfony-combining-disparate-cheminformatics-resources-into-a-single-toolkit">presentation</a> giving an overview of Cinfony 1.0 (from the 239th ACS National Meeting, San Francisco, March 2010).</li>
+<li>A <a class="reference external" href="http://www.slideshare.net/baoilleach/cinfony-bring-cheminformatics-toolkits-into-tune">presentation</a> giving an overview of Cinfony 1.1 (from Molecular Informatics Open Source Software &#8220;MIOSS&#8221;, EBI, Hinxton, May 2011).</li>
+<li>How to <a class="reference internal" href="usage.html#usage"><span>use</span></a> Cinfony</li>
+<li><a class="reference external" href="http://www.redbrick.dcu.ie/~noel/cinfony/current">API documentation</a>. This documentation can also be accessed using the help command, e.g. <code class="docutils literal"><span class="pre">help(cdk)</span></code>.</li>
+<li>The <a class="reference external" href="http://journal.chemistrycentral.com/content/2/1/24">Cinfony paper</a> (Open Access). Please cite <strong>N.M. O&#8217;Boyle, G.R. Hutchison</strong>, Chem. Cent. J., <strong>2008</strong>, 2, 24 to support continued development of Cinfony.</li>
+<li>Further information on Pybel and using the Open Babel Python bindings is available as part of the <a class="reference external" href="http://openbabel.org/docs">Open Babel documentation</a></li>
+<li>A <a class="reference external" href="http://baoilleach.blogspot.com/2009/11/introducing-webel-cheminformatics.html">blog post</a> describing the webel module</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Here&#8217;s a short example to get the juices flowing. Let&#8217;s read an IUPAC name with OPSIN, use Webel to find out its offical IUPAC name, draw it with Indigo, calculate its fingerprint with the RDKit, calculate descriptor values with the CDK, and write it out as an SDF file using Open Babel:</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="go">C:\&gt; cinfony # Set environment variables</span>
+<span class="go">C:\&gt; python</span>
+<span class="go">Python 2.6.4 (r264:75708, Oct 26 2009, 08:23:19) [MSC v.1500 32 bit (Intel)] on</span>
+<span class="go">win32</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cinfony</span> <span class="kn">import</span> <span class="n">obabel</span><span class="p">,</span> <span class="n">rdk</span><span class="p">,</span> <span class="n">cdk</span><span class="p">,</span> <span class="n">indy</span><span class="p">,</span> <span class="n">opsin</span><span class="p">,</span> <span class="n">webel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">opsinmol</span> <span class="o">=</span> <span class="n">opsin</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s">&quot;iupac&quot;</span><span class="p">,</span> <span class="s">&quot;2,4,6-trinitrotoluene&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">opsinmol</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">)</span>
+<span class="go">&#39;[N+](=O)([O-])C1=C(C(=CC(=C1)[N+](=O)[O-])[N+](=O)[O-])C&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="n">webel</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">opsinmol</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;iupac&quot;</span><span class="p">)</span>
+<span class="go">&#39;2-Methyl-1,3,5-trinitrobenzene&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">indy</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">opsinmol</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&quot;indy.png&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rdk</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">opsinmol</span><span class="p">)</span><span class="o">.</span><span class="n">calcfp</span><span class="p">()</span><span class="o">.</span><span class="n">bits</span>
+<span class="go">[4, 11, 13, 16, 19, 24, 32, 33, 35, 40, 47, 53, 56, 62, 68, 71, 78, 94, 97, 102,</span>
+<span class="gp">...</span>
+<span class="go">1969, 1972, 1979, 1985, 1990, 1992, 2004, 2010, 2016, 2021, 2023, 2028, 2034]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cdkdescs</span> <span class="o">=</span> <span class="n">cdk</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">opsinmol</span><span class="p">)</span><span class="o">.</span><span class="n">calcdesc</span><span class="p">()</span>
+<span class="go">{&#39;WHIM.13&#39;: nan, &#39;kierHallSmarts.49&#39;: 0, &#39;kierHallSmarts.48&#39;: 0, &#39;BCUT.4&#39;: 3.783</span>
+<span class="go">4783086527555, &#39;BCUT.5&#39;: 8.8565180117573092, ...}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obabelmol</span> <span class="o">=</span> <span class="n">obabel</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">opsinmol</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obabelmol</span><span class="o">.</span><span class="n">make3D</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obabelmol</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;TNT&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obabelmol</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cdkdescs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obabelmol</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;sdf&quot;</span><span class="p">,</span> <span class="s">&quot;TNT.sdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install_windows.html">Installing Cinfony on Windows</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install_windows.html#installing-dependencies">Installing dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_windows.html#installing-cinfony">Installing <strong>Cinfony</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_windows.html#testing-cinfony">Testing Cinfony</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_windows.html#using-cinfony-from-idle">Using Cinfony from IDLE</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="install_linux.html">Installing Cinfony on Linux</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#a-brief-word-about-installing-python-packages">A brief word about installing Python packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#cinfony">Cinfony</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#open-babel">Open Babel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#rdkit">RDKit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#cdk">CDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#indigo">Indigo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#jchem">JChem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#opsin">OPSIN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#webel">Webel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_linux.html#common-problems">Common problems</a></li>
-</ul>
-</li>
-</ul>
+</div>
 </div>
 </div>
 
@@ -73,34 +94,36 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
-<h3>Related Topics</h3>
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="#">
+    <img class="logo" src="_static/cinfony.png" alt="Logo"/>
+    
+    <h1 class="logo logo-name">Cinfony</h2>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">The toolkit of cheminformatics tookits</p>
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=cinfony&repo=cinfony&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+<h3>Navigation</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="install_windows.html" title="next chapter">Installing Cinfony on Windows</a></li>
-  </ul></li>
+<li class="toctree-l1"><a class="reference internal" href="install_windows.html">Installing Cinfony on Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_linux.html">Installing Cinfony on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">How to use Cinfony</a></li>
 </ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
         </div>
       </div>
       <div class="clearer"></div>

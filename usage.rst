@@ -1,3 +1,5 @@
+.. _usage:
+
 How to use Cinfony
 ==================
 
