@@ -28,7 +28,7 @@ Prerequisites
 Cinfony
 -------
 
-*    Download and install Cinfony 1.2
+*    `Download <https://github.com/cinfony/cinfony/releases/download/v1.2/cinfony-1.2.tar.gz>`_ and install Cinfony 1.2
 
      *   Test at the Python prompt as follows:
 

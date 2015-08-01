@@ -23,7 +23,7 @@ Installing **Cinfony**
 
 I will assume that you want to install Cinfony into the folder :file:`C:\\cinfony`. If you install it somewhere else, remember this when you are following the instructions.
 
--    Download `cinfony 1.2 <http://https://github.com/cinfony/cinfony/archive/v1.2rc1.zip>`_, and unzip it, for example, as :file:`C:\\cinfony`. This includes the following libraries so you don't need to download them separately:
+-    Download `cinfony 1.2 <https://github.com/cinfony/cinfony/releases/download/v1.2/cinfony-1.2.zip>`_, and unzip it, for example, as :file:`C:\\cinfony`. This includes the following libraries so you don't need to download them separately:
 
      -   JPype 0.5.4.2 - connects CPython to a JVM
      -   NumPy 1.6.2 - fast linear algebra for Python
