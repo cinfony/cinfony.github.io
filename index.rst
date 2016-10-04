@@ -36,7 +36,7 @@ Here's a short example to get the juices flowing. Let's read an IUPAC name with 
         Python 2.6.4 (r264:75708, Oct 26 2009, 08:23:19) [MSC v.1500 32 bit (Intel)] on
         win32
         Type "help", "copyright", "credits" or "license" for more information.
-        >>> from cinfony import obabel, rdk, cdk, indy, opsin, webel
+        >>> from cinfony import pybel, rdk, cdk, indy, opsin, webel
         >>> opsinmol = opsin.readstring("iupac", "2,4,6-trinitrotoluene")
         >>> opsinmol.write("smi")
         '[N+](=O)([O-])C1=C(C(=CC(=C1)[N+](=O)[O-])[N+](=O)[O-])C'
@@ -50,7 +50,7 @@ Here's a short example to get the juices flowing. Let's read an IUPAC name with 
         >>> cdkdescs = cdk.Molecule(opsinmol).calcdesc()
         {'WHIM.13': nan, 'kierHallSmarts.49': 0, 'kierHallSmarts.48': 0, 'BCUT.4': 3.783
         4783086527555, 'BCUT.5': 8.8565180117573092, ...}
-        >>> obabelmol = obabel.Molecule(opsinmol)
+        >>> obabelmol = pybel.Molecule(opsinmol)
         >>> obabelmol.make3D()
         >>> obabelmol.title = "TNT"
         >>> obabelmol.data.update(cdkdescs)
