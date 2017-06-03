@@ -20,7 +20,7 @@ Documentation
 *    A `presentation <http://www.slideshare.net/baoilleach/cinfony-bring-cheminformatics-toolkits-into-tune>`_ giving an overview of Cinfony 1.1 (from Molecular Informatics Open Source Software "MIOSS", EBI, Hinxton, May 2011).
 *    How to :ref:`use <usage>` Cinfony
 *    `API documentation <http://www.redbrick.dcu.ie/~noel/cinfony/current>`_. This documentation can also be accessed using the help command, e.g. ``help(cdk)``.
-*    The `Cinfony paper <http://journal.chemistrycentral.com/content/2/1/24>`_ (Open Access). Please cite **N.M. O'Boyle, G.R. Hutchison**, Chem. Cent. J., **2008**, 2, 24 to support continued development of Cinfony.
+*    The `Cinfony paper <https://doi.org/10.1186/1752-153X-2-24>`_ (Open Access). Please cite **N.M. O'Boyle, G.R. Hutchison**, Chem. Cent. J., **2008**, 2, 24 to support continued development of Cinfony.
 *    Further information on Pybel and using the Open Babel Python bindings is available as part of the `Open Babel documentation <http://openbabel.org/docs>`_
 *    A `blog post <http://baoilleach.blogspot.com/2009/11/introducing-webel-cheminformatics.html>`_ describing the webel module 
 
